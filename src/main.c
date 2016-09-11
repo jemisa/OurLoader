@@ -85,10 +85,7 @@ int Menu_Main(void)
 	MEM1_free(screenBuffer);
 	screenBuffer = NULL;
 
-   
-        char buf_vol_odd[20];
-        snprintf(buf_vol_odd, sizeof(buf_vol_odd), "%s", "/vol/storage_odd03");
-        _SYSLaunchTitleByPathFromLauncher(buf_vol_odd, 18, 0);
+    
 
     //!*******************************************************************
     //!                    Enter main application                        *
@@ -100,6 +97,11 @@ int Menu_Main(void)
     memoryRelease();
     log_deinit();
 
-    return EXIT_SUCCESS;
+    char buf_vol_odd[20];
+        snprintf(buf_vol_odd, sizeof(buf_vol_odd), "%s", "/vol/storage_odd03");
+        _SYSLaunchTitleByPathFromLauncher(buf_vol_odd, 18, 0);
+
+    return EXIT_RELAUNCH_ON_LOAD;
+
 }
 

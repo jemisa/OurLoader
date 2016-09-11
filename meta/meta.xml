@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<app version="1">
+  <name>Ourloader</name>
+  <coder>coc4tm</coder>
+  <version>0.0.1</version>
+  <release_date>20161109200000</release_date>
+  <url>https://github.com/OurBrew/OurLoader</url>
+  <short_description>Region free loader for Wii U</short_description>
+<long_description>Region free loader for Wii U
+
+Based on Wii U hello world and use code from DDD
+</long_description>
+
+</app>
