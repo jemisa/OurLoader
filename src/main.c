@@ -18,9 +18,12 @@
 #include "utils/utils.h"
 #include "common/common.h"
 
+int launched = 0;
+
 /* Entry point */
 int Menu_Main(void)
 {
+    if(launched) return EXIT_SUCCESS;
     //!*******************************************************************
     //!                   Initialize function pointers                   *
     //!*******************************************************************
@@ -98,6 +101,8 @@ int Menu_Main(void)
     log_printf("Release memory\n");
     memoryRelease();
     log_deinit();
+    
+    launched=1;
 
     char buf_vol_odd[20];
         snprintf(buf_vol_odd, sizeof(buf_vol_odd), "%s", "/vol/storage_odd03");
