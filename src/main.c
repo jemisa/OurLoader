@@ -33,7 +33,9 @@ int Menu_Main(void)
 
     InitFSFunctionPointers();
     InitVPadFunctionPointers();
-
+    
+    InitSysFunctionPointers();
+    
     log_print("Function exports loaded\n");
 
     //!*******************************************************************
