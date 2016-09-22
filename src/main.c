@@ -17,6 +17,7 @@
 #include "utils/logger.h"
 #include "utils/utils.h"
 #include "common/common.h"
+#include "uscreen.h"
 
 int launched = 0;
 
@@ -53,43 +54,6 @@ int Menu_Main(void)
     //!*******************************************************************
     log_printf("Mount SD partition\n");
     mount_sd_fat("sd");
-
-    VPADInit();
-
-    // Prepare screen
-    int screen_buf0_size = 0;
-    int screen_buf1_size = 0;
-
-    // Init screen and screen buffers
-    OSScreenInit();
-    screen_buf0_size = OSScreenGetBufferSizeEx(0);
-    screen_buf1_size = OSScreenGetBufferSizeEx(1);
-
-    unsigned char *screenBuffer = MEM1_alloc(screen_buf0_size + screen_buf1_size, 0x40);
-
-    OSScreenSetBufferEx(0, screenBuffer);
-    OSScreenSetBufferEx(1, (screenBuffer + screen_buf0_size));
-
-    OSScreenEnableEx(0, 1);
-    OSScreenEnableEx(1, 1);
-
-    // Clear screens
-    OSScreenClearBufferEx(0, 0);
-    OSScreenClearBufferEx(1, 0);
-
-   //Text printing ?
-
-    // Flush the cache
-    DCFlushRange(screenBuffer, screen_buf0_size);
-    DCFlushRange((screenBuffer + screen_buf0_size), screen_buf1_size);
-
-    // Flip buffers
-    OSScreenFlipBuffersEx(0);
-    OSScreenFlipBuffersEx(1);
-
-	MEM1_free(screenBuffer);
-	screenBuffer = NULL;
-
     
 
     //!*******************************************************************
@@ -103,7 +67,14 @@ int Menu_Main(void)
     log_deinit();
     
     launched=1;
-
+    
+    uprintf("OurLoader");
+    uprintf("Press A to launch disk");
+    	while(1) { 
+		
+		updatePressedButtons(); //Update buttons state
+		if(isPressed(VPAD_BUTTON_A)) break; //Check if home is pressed
+	}
     char buf_vol_odd[20];
         snprintf(buf_vol_odd, sizeof(buf_vol_odd), "%s", "/vol/storage_odd03");
         _SYSLaunchTitleByPathFromLauncher(buf_vol_odd, 18, 0);

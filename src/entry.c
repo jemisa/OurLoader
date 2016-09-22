@@ -4,6 +4,7 @@
 #include "common/common.h"
 #include "utils/utils.h"
 #include "main.h"
+#include "uscreen.h"
 
 int __entry_menu(int argc, char **argv)
 {
@@ -18,6 +19,8 @@ int __entry_menu(int argc, char **argv)
         return EXIT_RELAUNCH_ON_LOAD;
 	}
 	
+    uInit();
+
     //! *******************************************************************
     //! *                 Jump to our application                    *
     //! *******************************************************************
