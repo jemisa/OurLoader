@@ -29,6 +29,8 @@ int Menu_Main(void)
         if(isPressed(VPAD_BUTTON_A)) break; //Check if home is pressed
     }
     
+    uDeInit();
+    
     char buf_vol_odd[20] = "/vol/storage_odd03";
     _SYSLaunchTitleByPathFromLauncher(buf_vol_odd, 18, 0);
 
