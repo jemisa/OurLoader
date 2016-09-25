@@ -5,10 +5,12 @@
 #include "utils/utils.h"
 #include "main.h"
 #include "uscreen.h"
+#include "utils/exception.h"
 
 int __entry_menu(int argc, char **argv)
 {
-	    uInit();
+	InstallExceptionHandler();
+	uInit();
     //! *******************************************************************
     //! *              Check if our application is started                *
     //! *******************************************************************
@@ -19,7 +21,7 @@ int __entry_menu(int argc, char **argv)
     {
         return EXIT_RELAUNCH_ON_LOAD;
 	}
-	
+
     //! *******************************************************************
     //! *                 Jump to our application                    *
     //! *******************************************************************
