@@ -15,6 +15,8 @@ int load = 0;
 /* Entry point */
 int Menu_Main(void)
 {
+    uInit();
+    
     if(launched) return EXIT_SUCCESS;
 
     //Init dynamic libraries
