@@ -22,6 +22,7 @@ void uInit() {
 }
 
 void uDeInit() {
+  ucls();
   MEM1_free(screenBuffer);
   screenBuffer = NULL;
   memoryRelease();
@@ -39,10 +40,10 @@ void ucls() {
 
 void ScreenInit() {
   //Init screen and screen buffers
-  OSScreenInit();	
+  OSScreenInit();
   screen_buf0_size = OSScreenGetBufferSizeEx(0);
   screen_buf1_size = OSScreenGetBufferSizeEx(1);
-  screenBuffer = MEM1_alloc(screen_buf0_size + screen_buf1_size, 0x40);
+  screenBuffer = MEM1_alloc(screen_buf0_size + screen_buf1_size, 0x100);
   OSScreenSetBufferEx(0, screenBuffer);
   OSScreenSetBufferEx(1, (screenBuffer + screen_buf0_size));
   OSScreenEnableEx(0, 1);
@@ -63,7 +64,7 @@ void uprintf(const char* format, ...) {
     curr_line_tmp=curr_line;
     curr_x=0;
     for(size_t ii=0; ii<strlen(buff); ii++) {
-      if(buff[ii]!='\n') { //HACKY! Check for carrige returns 
+      if(buff[ii]!='\n') { //HACKY! Check for carrige returns
         tmp_c[0]=buff[ii];
         OSScreenPutFontEx(0, curr_x, curr_line_tmp, tmp_c);  //That is printed to TV
         OSScreenPutFontEx(1, curr_x, curr_line_tmp, tmp_c);  //That is printed on GamePad
@@ -91,6 +92,3 @@ int isPressed(int button) {
 	if(buttons_hold&button) return 1;
 	else return 0;
 }
-
-
-

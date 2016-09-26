@@ -6,9 +6,12 @@
 #include "main.h"
 #include "uscreen.h"
 
+/* Entry point*/
 int __entry_menu(int argc, char **argv)
 {
-	    uInit();
+	//Init dynamic libraries
+    InitOSFunctionPointers();
+
     //! *******************************************************************
     //! *              Check if our application is started                *
     //! *******************************************************************
@@ -19,9 +22,19 @@ int __entry_menu(int argc, char **argv)
     {
         return EXIT_RELAUNCH_ON_LOAD;
 	}
-	
+
+	//Init the rest of the dynamic libraries
+	InitVPadFunctionPointers();
+    InitSysFunctionPointers();
+
+	uInit();
+
     //! *******************************************************************
     //! *                 Jump to our application                    *
     //! *******************************************************************
-    return Menu_Main();
+    int ret = Menu_Main();
+
+	uDeInit();
+
+	return ret;
 }
