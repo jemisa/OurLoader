@@ -2,8 +2,8 @@
 <app version="1">
   <name>OurLoader</name>
   <coder>OurBrew (coc4tm)</coder>
-  <version>1.0 RC4</version>
-  <release_date>20162309200000</release_date>
+  <version>1.0</version>
+  <release_date>20160910200000</release_date>
   <url>https://github.com/OurBrew/OurLoader</url>
   <short_description>Region free disk loader for Wii U</short_description>
 <long_description>
