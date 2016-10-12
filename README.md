@@ -1,9 +1,11 @@
 #OurLoader
 
-Region free disk loader for Wii U
+Lancez vos disques de toutes régions !  
 
-Based on Wii U hello world , DDD and easy_lib (thanks @rw-r-r-0644)
+Basé sur Wii U hello world , DDD et easy_lib (merci @rw-r-r-0644)
 
-Use patch from @QuarkTheAwesome , @wj444 and @rw-r-r-0644
+Utulise des patchs de  @QuarkTheAwesome , @wj444 et @rw-r-r-0644
 
-More information [here](http://wiiubrew.org/wiki/OurLoader)
+Plus d'informations [ici (en anglais)](http://wiiubrew.org/wiki/OurLoader)
+
+Version francaise pour http://www.logic-sunrise.com/
