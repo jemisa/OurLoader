@@ -23,7 +23,6 @@
  ***************************************************************************/
 #include "os_functions.h"
 #include "gx2_types.h"
-#include "utils/utils.h"
 
 EXPORT_DECL(void, GX2Init, u32 * init_attribs);
 EXPORT_DECL(void, GX2Shutdown, void);
