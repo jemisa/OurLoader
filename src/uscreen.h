@@ -5,8 +5,8 @@
  *
 */
 
-#ifndef LIB_EASY_H
-#define LIB_EASY_H
+#ifndef USCREEN_H
+#define USCREEN_H
 
 #include <string.h>
 #include <stdarg.h>
@@ -24,8 +24,6 @@
 #include "fs/fs_utils.h"
 #include "fs/sd_fat_devoptab.h"
 #include "system/memory.h"
-#include "utils/logger.h"
-#include "utils/utils.h"
 #include "common/common.h"
 #include "common/common.h"
 
@@ -34,14 +32,14 @@ unsigned char *screenBuffer;
 int curr_line; //Current print line
 uint32_t buttons_hold; //Held buttons
 
-void ucls();
-void ScreenInit();
+void ucls(); //Clear screen
+void ScreenInit(); // Init Screen (Thanks Captain Obivious !)
 void flipBuffers();
-void uprintf(const char* format, ...);
-void updatePressedButtons();
-int isPressed(int button);
-void uInit();
-void uDeInit();
+void uprintf(const char* format, ...); //Print text
+void updatePressedButtons(); // Update pressed buttons (Thanks Captain Obivious !)
+int isPressed(int button); // Check if a key is pressed
+void uInit(); //Init lib
+void uDeInit(); //De-init lib
 
-#endif /* LIB_EASY_H */
+#endif /* USCREEN_H */
 
